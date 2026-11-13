@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerMovment : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-  
+
     public float moveSpeed = 5.0f;
     public float jumpForce = 10f;
     private Rigidbody2D rb;
@@ -11,7 +11,7 @@ public class PlayerMovment : MonoBehaviour
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D> ();  
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
