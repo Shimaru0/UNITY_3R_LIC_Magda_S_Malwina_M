@@ -1,28 +1,28 @@
-using System.Collections;
 using UnityEngine;
 
-public class apple_triger : MonoBehaviour
+public class apple_trigger : MonoBehaviour
 {
-    AudioSource m_AudioSource;
-
-    private void Start()
+    [SerializeField] private SpriteRenderer sprite;
+    [SerializeField] private Collider2D collider2d;
+    [SerializeField] private AudioSource audiosource;
+    private UI ui;
+    void Start()
     {
-        m_AudioSource = GetComponent<AudioSource>();
+        ui = FindAnyObjectByType<UI>();
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    void OnTriggerEnter2D()  //Plays Sound Whenever collision detected
     {
-        if (collision.CompareTag("Player"))
-        {
-            m_AudioSource.Play();
-            StartCoroutine("Delay");
-
-        }
-    }
-        IEnumerator Delay()
-        {
-
-            yield return new WaitForSeconds(0.3f);
-            Destroy(gameObject);
-    }
+        audiosource.Play();
+        sprite.enabled = false;
+        collider2d.enabled = false;
+        ui.score++;
+        Debug.Log("crystal collected!");
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+}
