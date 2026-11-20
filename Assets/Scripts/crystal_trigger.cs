@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class apple_trigger : MonoBehaviour
+public class crystal_trigger : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer sprite;
     [SerializeField] private Collider2D collider2d;
